@@ -3,5 +3,29 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+  # movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+  # Character.create(name: 'Luke', movie: movies.first)
+
+# Ingredient.create(name: "lemon")
+# Ingredient.create(name: "ice")
+# Ingredient.create(name: "mint leaves")
+
+require 'json'
+require 'open-uri'
+
+
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+
+serialized_cocktails = open(url).read
+
+data = JSON.parse(serialized_cocktails)
+
+ingredients = data["drinks"]
+
+ingredients.each do |ingredient|
+
+  i = ingredient["strIngredient1"]
+
+  Ingredient.create(name: i)
+end
+

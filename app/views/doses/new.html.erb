@@ -1,0 +1,22 @@
+
+<div class=" container">
+
+<h1>Please add a dose</h1>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.input :description %>
+
+  <%= f.select :ingredient, Ingredient.all.map{ |ingredient|
+  ingredient.name} %>
+ <!--  map create a new array , then ingredient replace it by a new array -->
+  <div>
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+
+<i class="fas fa-undo"></i> <%= link_to "Back to list", root_path %>
+</div>
+
+
+

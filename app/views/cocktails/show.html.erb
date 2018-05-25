@@ -1,0 +1,19 @@
+<h1><%=@cocktail.name%></h1>
+
+
+
+<div>
+  <p> <%=@cocktail.name%></p>
+
+</div>
+
+<div>
+<i class="fas fa-plus-circle"></i> <%= link_to "Add a dose", new_cocktail_dose_path(@cocktail)%>
+</div>
+
+
+<div>
+<i class="fas fa-undo"></i> <%= link_to "Back to list", root_path %>
+</div>
+
+
